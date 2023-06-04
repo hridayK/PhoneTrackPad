@@ -1,7 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'dart:io';
+import 'package:trackpad/trackpad.dart';
 
 void main() {
   runApp(const App());
@@ -19,6 +17,7 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      home: const HomePage(),
     );
   }
 }
@@ -45,8 +44,14 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () async {},
-              child: const Text('Get IP Address'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const TrackPad(),
+                  ),
+                );
+              },
+              child: const Text('Start'),
             ),
           ],
         ),
